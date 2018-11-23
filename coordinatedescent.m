@@ -1,15 +1,15 @@
 function x=coordinatedescent(Q,c,p,x0,maxiter)
-  % Entrées :
+  % Entrï¿½es :
   % Q est une matrice n x n
   % c est un vecteur n x 1
   % p est un scalaire
-  % x0 est l'itéré initial (vecteur n x 1)
-  % maxiter est le nombre d'itérations à effectuer
+  % x0 est l'itï¿½rï¿½ initial (vecteur n x 1)
+  % maxiter est le nombre d'itï¿½rations ï¿½ effectuer
   
   % Sortie :
   % x est vecteur n x 1
   
-  % ICI :Algorithme à implémenter
+  % ICI :Algorithme ï¿½ implï¿½menter
   a = size (c);
   n = a(2);
   
@@ -29,12 +29,7 @@ function x=coordinatedescent(Q,c,p,x0,maxiter)
       endfor
       x0(j) = (A - (Q(j,j)*x0(j)) - c(j))/(-Q(j,j))
     endif 
-  
-##    if i>1
-##      if (z(i) == z(i-1))
-##        break;
-##      endif
-##    endif
+ 
     
   endfor
   fprintf('La valeur optimale de x est %f\n', x0);
