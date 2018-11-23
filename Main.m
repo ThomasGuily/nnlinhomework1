@@ -1,6 +1,7 @@
 %Main
 clear all, close all,
-choix = input ('Choix : 0 = probl�me sp�cifique ; 1 = probl�me random ; 2 = Tapez votre propre probl�me ==>');
+fprintf(' 0 = probleme specifique \n 1 = probleme random \n 2 = Tapez votre propre probleme\n')
+choix = input ('Choix :  ');
 n=0;
 if (choix == 0)
   
