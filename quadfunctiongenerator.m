@@ -25,25 +25,25 @@
 
 function [Q, x0, c, p] = quadfunctiongenerator (n, choix)
 
-%fonction reprise des séances d'exercices
-%(x+y)²-(2x+4)²+(y-2)²
+%fonction reprise des sï¿½ances d'exercices
+%(x+y)ï¿½-(2x+4)ï¿½+(y-2)ï¿½
 if (choix == 0)
   Q = [2,1 ; 1,2];
   x0 = [1, 1];
   c = [0,0];
   p = 0;
   
-  fprintf ('La fonction (x+y)²-(2x+4)²+(y-2)² est caractérisée par :');
+  fprintf ('La fonction (x+y)ï¿½-(2x+4)ï¿½+(y-2)ï¿½ est caractï¿½risï¿½e par :');
 
   
-  %fonction est générée aléatoirement
+  %fonction est gï¿½nï¿½rï¿½e alï¿½atoirement
 elseif (choix == 1)
   Q = 0;
   x0 = 1;
   c = 2 ; 
   p = 4 ; 
   
-  %coefficients rentrés par l'utilisateur
+  %coefficients rentrï¿½s par l'utilisateur
 else
   Q = 0;
   x0 = 1;

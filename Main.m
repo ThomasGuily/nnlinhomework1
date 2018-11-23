@@ -8,11 +8,8 @@ if (choix == 0)
   
   maxiter = input ( 'Nbre it�rations :'); 
   [x, z] = coordinatedescent(Q,c,p,x0,maxiter);
-  %visualizer(x, z);
-  hold on;
-  %plot3(x(:,1), x(:,2), z);
-  plot(x(:,1), z);
-  hold off;
+  visualizer(x, z);
+  
 else
   
   n = input ('choix des dimensions: n = ');

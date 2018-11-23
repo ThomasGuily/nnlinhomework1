@@ -5,8 +5,8 @@ function visualizer(x, z)
 % iters = 1:size(x)(1);
 % plot(iters,x(:,1))
 if size(x)(2)
-  hold on;
   plot3(x(:,1), x(:,2), z)
+  hold on;
 endif
 
 endfunction
