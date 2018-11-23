@@ -12,22 +12,29 @@ function x=coordinatedescent(Q,c,p,x0,maxiter)
   % ICI :Algorithme à implémenter
   a = size (c);
   n = a(2);
-  A =0;
+  
+  
  
   for i=1:maxiter
-    [f] = fcalculator (Q, x0, c, p)
+    A = 0;
+    [f,delta] = fcalculator (Q, x0, c, p)
     z(i) = f ; 
-    j = ceil(rand(1)*n) ; 
-    for o = 1:n
-      A -= Q(j,o)*x0(o) + Q(o,j)*x0(o); 
-    endfor
-    x0(j) = (A+ (2* Q(j,j)) + c(j))/2*Q(j,j)
-    
-    %if i>1
-      %if z(i) <= z(i-1)
-        %break;
-      %endif
-    %endif
+    j = ceil(rand(1)*n);
+              
+    if (delta(j) == 0)
+           
+    else   
+      for o = 1:n
+        A += (Q(j,o)*x0(o) + Q(o,j)*x0(o))/2; 
+      endfor
+      x0(j) = (A - (Q(j,j)*x0(j)) - c(j))/(-Q(j,j))
+    endif 
+  
+##    if i>1
+##      if (z(i) == z(i-1))
+##        break;
+##      endif
+##    endif
     
   endfor
   fprintf('La valeur optimale de x est %f\n', x0);

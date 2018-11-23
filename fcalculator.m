@@ -23,9 +23,11 @@
 ## Author: ThomasGuily <ThomasGuily@THOMASGUILY-PC>
 ## Created: 2018-11-19
 
-function [f] = fcalculator (Q, x0, c, p)
-
+function [f,delta] = fcalculator (Q, x0, c, p)
+  a= size(x0);
+  n = a(2);
   f = (x0*Q*x0') - (c * x0') + p ;
+  delta = (Q*x0')- c';
   
 
 endfunction

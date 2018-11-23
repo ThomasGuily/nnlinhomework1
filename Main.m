@@ -1,5 +1,5 @@
 %Main
-
+clear all, close all,
 choix = input ('Choix : 0 = problème spécifique ; 1 = problème random ; 2 = Tapez votre propre problème ==>');
 n=0;
 if (choix == 0)
@@ -15,4 +15,3 @@ else
   n = input ('choix des dimensions: n = ');
   [Q, x0, c, p] = quadfunctiongenerator(n,choix);
 endif
-
