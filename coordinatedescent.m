@@ -1,4 +1,4 @@
-function x=coordinatedescent(Q,c,p,x0,maxiter)
+function [x, z] = coordinatedescent(Q,c,p,x0,maxiter)
   % Entr�es :
   % Q est une matrice n x n
   % c est un vecteur n x 1
@@ -12,12 +12,14 @@ function x=coordinatedescent(Q,c,p,x0,maxiter)
   % ICI :Algorithme � impl�menter
   a = size (c);
   n = a(2);
-  
-  
+  x = [];
+  %[f,delta] = fcalculator (Q, x0, c, p)
+  %z(1) = f ; 
  
   for i=1:maxiter
     A = 0;
     [f,delta] = fcalculator (Q, x0, c, p)
+    x = [x; x0];
     z(i) = f ; 
     j = ceil(rand(1)*n);
               
@@ -28,9 +30,7 @@ function x=coordinatedescent(Q,c,p,x0,maxiter)
         A += (Q(j,o)*x0(o) + Q(o,j)*x0(o))/2; 
       endfor
       x0(j) = (A - (Q(j,j)*x0(j)) - c(j))/(-Q(j,j))
-    endif 
- 
-    
+    endif
   endfor
   fprintf('La valeur optimale de x est %f\n', x0);
   fprintf('La valeur optimale de la fonction est %f\n', f);

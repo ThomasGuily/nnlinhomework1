@@ -1,15 +1,18 @@
 %Main
 clear all, close all,
-choix = input ('Choix : 0 = problème spécifique ; 1 = problème random ; 2 = Tapez votre propre problème ==>');
+choix = input ('Choix : 0 = problï¿½me spï¿½cifique ; 1 = problï¿½me random ; 2 = Tapez votre propre problï¿½me ==>');
 n=0;
 if (choix == 0)
   
   [Q, x0, c, p] = quadfunctiongenerator(n,choix)
   
-  maxiter = input ( 'Nbre itérations :'); 
-  x = coordinatedescent(Q,c,p,x0,maxiter);
-  
-  
+  maxiter = input ( 'Nbre itï¿½rations :'); 
+  [x, z] = coordinatedescent(Q,c,p,x0,maxiter);
+  %visualizer(x, z);
+  hold on;
+  %plot3(x(:,1), x(:,2), z);
+  plot(x(:,1), z);
+  hold off;
 else
   
   n = input ('choix des dimensions: n = ');
