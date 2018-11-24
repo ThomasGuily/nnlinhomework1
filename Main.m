@@ -9,7 +9,7 @@ if (choix == 0)
   
   maxiter = input ( 'Nbre it�rations :'); 
   [x, z] = coordinatedescent(Q,c,p,x0,maxiter);
-  visualizer(x, z);
+  visualizer(x, z, Q, c, p);
   
 else
   
