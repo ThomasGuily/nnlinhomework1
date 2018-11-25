@@ -12,10 +12,15 @@ if size(x)(2)
   
   % Display the function's surface:
   %% Calculate limits:
-  x1_low = x(1,1);
-  x1_hi  = x(size(x)(1),1) + x1_low;
-  x2_low = x(1,2);
-  x2_hi  = x(size(x)(1),2) + x2_low;
+  %%% THIS DEFINITION WAS THE PROBLEM
+  % x1_low = x(1,1);
+  % x1_hi  = x(size(x)(1),1) + x1_low;
+  % x2_low = x(1,2);
+  % x2_hi  = x(size(x)(1),2) + x2_low;
+  x1_low = min(x(:,1));
+  x1_hi  = max(x(:,1));
+  x2_low = min(x(:,2));
+  x2_hi  = max(x(:,2));
   
   % Resolution will be the number of points:
   resolution = 100;
@@ -31,6 +36,11 @@ if size(x)(2)
       f(i,j) = _tmp;
     endfor
   endfor 
+  %for i=1:resolution
+  %    [_tmp, _] = fcalculator(Q, [x1(i),x2(i)], c, p);
+  %    f(i) = _tmp;
+  %endfor 
+  %f = f';
   
   _string = sprintf('%d ', size(x1));
   fprintf('Answer: %s\n', _string);
@@ -42,7 +52,6 @@ if size(x)(2)
   fprintf('Answer: %s\n', _string);
 
   mesh(x1, x2, f);
-  
   
 endif
 
