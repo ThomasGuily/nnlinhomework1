@@ -6,17 +6,12 @@ clf;
 % plot(iters,x(:,1))
 if size(x)(2)
   % Afficher les iterees: 
-  plot3(x(:,1), x(:,2), z)
+  plot3(x(:,1), x(:,2), z) % Descent line.
   hold on;
-  % fcalculator (Q, x0, c, p)
+  scatter3(x(:,1), x(:,2), z) % Point at each iteration.
   
   % Display the function's surface:
   %% Calculate limits:
-  %%% THIS DEFINITION WAS THE PROBLEM
-  % x1_low = x(1,1);
-  % x1_hi  = x(size(x)(1),1) + x1_low;
-  % x2_low = x(1,2);
-  % x2_hi  = x(size(x)(1),2) + x2_low;
   x1_low = min(x(:,1));
   x1_hi  = max(x(:,1));
   x2_low = min(x(:,2));
@@ -36,21 +31,7 @@ if size(x)(2)
       f(i,j) = _tmp;
     endfor
   endfor 
-  %for i=1:resolution
-  %    [_tmp, _] = fcalculator(Q, [x1(i),x2(i)], c, p);
-  %    f(i) = _tmp;
-  %endfor 
-  %f = f';
   
-  _string = sprintf('%d ', size(x1));
-  fprintf('Answer: %s\n', _string);
-  
-  _string = sprintf('%d ', size(x2));
-  fprintf('Answer: %s\n', _string);
-  
-  _string = sprintf('%d ', size(f));
-  fprintf('Answer: %s\n', _string);
-
   mesh(x1, x2, f);
   
 endif
