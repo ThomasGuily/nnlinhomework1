@@ -28,6 +28,8 @@ function [f,delta] = fcalculator (Q, x0, c, p)
   a= size(x0);
   n = a(2);
   f = (x0*Q*x0') - (c * x0') + p ;
-  delta = (Q*x0')- c';
+   %  ^ c parait etre l'envers mais c'est juste la definition dans Octave.
+  delta = (Q*x0')- c'; 
+  % ^ pareil, ici normalement c'devrait etre c
  
 endfunction
