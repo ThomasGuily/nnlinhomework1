@@ -26,35 +26,29 @@
 function [Q, x0, c, p] = quadfunctiongenerator (n, choix)
 
 %fonction reprise des sï¿½ances d'exercices
-%(x+y)ï¿½-(2x+4)ï¿½+(y-2)ï¿½
+%(x+y)^2
 if (choix == 0)
-  Q = [2,1 ; 1,2];
-  x0 = [1, 1];
-  c = [0,0];
-  p = 0;
-  
-  fprintf ('La fonction (x+y)ï¿½-(2x+4)ï¿½+(y-2)ï¿½ est caractï¿½risï¿½e par :');
+  Q = [2,1 ; 1,2]
+  x0 = [1, 1]
+  c = [0,0]
+  p = 0
+  A = [];
+  b = [];
+  fprintf ('La fonction (x+y)^2 est minimisée : \n');
 
   
-  %fonction est gï¿½nï¿½rï¿½e alï¿½atoirement
-elseif (choix == 1)
-  Q = 0;
-  x0 = 1;
-  c = 2 ; 
-  p = 4 ; 
+  %fonction minimisant ||Ax-b||_2^2)
+else 
+  A = [1,1 ; 1, 1] ;
+  x0 = [1,1] ; 
+  b = [0,0] ;
+  Q = 0.5*A'*A;
+  c = b*A;
+  p = 0.5*b*b';  
+  fprintf ('La fonction ||Ax-b||_2^2 est minimisée : \n');
   
-  %coefficients rentrï¿½s par l'utilisateur
-else
-  Q = 0;
-  x0 = 1;
-  c = 2 ; 
-  p = 4 ; 
+
 endif
-
-
-
-
-
 
 
 

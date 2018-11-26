@@ -1,4 +1,4 @@
-function [x, z] = coordinatedescentLS(A, b, x0, maxiter)
+function [Q, c, p] = coordinatedescentLS(A, b, x0, maxiter)
   % Entrees :
   % A est une matrice m x n
   % b est un vecteur m x 1s
@@ -11,10 +11,8 @@ function [x, z] = coordinatedescentLS(A, b, x0, maxiter)
   % ICI :Algorithme a implementer
   
   % A partir de notre deduction:
-  Q = (A')*A;
-  c = (b')*A;
-  p = (b')*b;
   
-  [x, z] = coordinatedescent(Q, c, p, x0, maxiter);
+  
+ 
 
 end
