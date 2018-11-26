@@ -13,19 +13,22 @@ function [x, z] = coordinatedescent(Q,c,p,x0,maxiter)
   a = size (c);
   n = a(2);
   x = [];
+  z = [];
   %[f,delta] = fcalculator (Q, x0, c, p)
   %z(1) = f ; 
  
   for i=1:maxiter
     A = 0;
     [f,delta] = fcalculator (Q, x0, c, p)
-    x = [x; x0];
-    z(i) = f ; 
-    j = ceil(rand(1)*n);
-              
+    
+    
+    j = ceil(rand(1)*n);       
     if (delta(j) == 0)
            
-    else   
+    else          
+      x = [x; x0];
+      z = [z; f] ; 
+      
       for o = 1:n
         A += (Q(j,o)*x0(o) + Q(o,j)*x0(o))/2; 
       endfor
