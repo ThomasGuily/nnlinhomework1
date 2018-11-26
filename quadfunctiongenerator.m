@@ -23,29 +23,67 @@
 ## Author: ThomasGuily <ThomasGuily@THOMASGUILY-PC>
 ## Created: 2018-11-19
 
-function [Q, x0, c, p] = quadfunctiongenerator (n, choix)
+function [Q, x0, c, p] = quadfunctiongenerator (choix)
 
 %fonction reprise des sï¿½ances d'exercices
 %(x+y)^2
 if (choix == 0)
-  Q = [2,1 ; 1,2]
-  x0 = [1, 1]
-  c = [0,0]
-  p = 0
-  A = [];
-  b = [];
-  fprintf ('La fonction (x+y)^2 est minimisée : \n');
+  
+  
+  n = input ('Choix du nombre de variables: n = ');
+  fprintf ('Entrer les valeures des éléments de Q, de c et de la constante p \n');
+  
+  for i = 1 : n
+    for j = 1 : n
+      fprintf('Q(%d', i),fprintf(',%d', j), Q(i,j) = input (')==>');
+    endfor  
+  endfor
+  
+  for i = 1 : n
+    fprintf('c(%d', i), c(i) = input (')==>');
+  endfor
+  p = input ('p ==>');
+  
+  fprintf ('Entrer les valeures de litérée initiale \n');
+  
+  for i = 1 : n
+    fprintf('x0(%d', i), x0(i) = input (')==>');
+  endfor
+  
+  fprintf ('le problème est carctérisé par: \n');
+  Q , c, p, x0 
+  
+
+  
 
   
   %fonction minimisant ||Ax-b||_2^2)
 else 
-  A = [1,1 ; 1, 1] ;
-  x0 = [1,1] ; 
-  b = [0,0] ;
-  Q = 0.5*A'*A;
-  c = b*A;
-  p = 0.5*b*b';  
-  fprintf ('La fonction ||Ax-b||_2^2 est minimisée : \n');
+  n = input ('Choix du nombre de variables: n = ');
+  fprintf ('Entrer les valeures des éléments de A et de b qui caractérise le problême du moindre carré min||Ax-b||_2^2 \n');
+  
+  for i = 1 : n
+    for j = 1 : n
+      fprintf('A(%d', i),fprintf(',%d', j), A(i,j) = input (')==>');
+    endfor  
+  endfor
+  
+  for i = 1 : n
+    fprintf('b(%d', i), b(i) = input (')==>');
+  endfor
+  
+  fprintf ('Entrer les valeures de litérée initiale \n');
+  
+  for i = 1 : n
+    fprintf('x0(%d', i), x0(i) = input (')==>');
+  endfor
+  
+  fprintf ('le problème est carctérisé par: \n');
+  Q = 0.5*A'*A, c = b*A, p = 0.5*b'*b, x0 
+  
+  
+  
+  
   
 
 endif

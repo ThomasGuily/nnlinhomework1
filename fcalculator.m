@@ -9,7 +9,7 @@ function [f,delta] = fcalculator (Q, x0, c, p)
   n = a(2);
   f = 0.5*(x0*Q*x0') - (c * x0') + p ;
   %  ^ c parait etre l'envers mais c'est juste la definition dans Octave.
-  delta = 0.5*(Q*x0')- c'; 
+  delta = 0.5*(x0*Q)- c; 
   %  pareil, ici normalement c'devrait etre c
  
 endfunction
