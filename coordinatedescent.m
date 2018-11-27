@@ -1,40 +1,44 @@
 function [x, z] = coordinatedescent(Q,c,p,x0,maxiter)
-  % Entr�es :
+  % Entrees :
   % Q est une matrice n x n
   % c est un vecteur n x 1
   % p est un scalaire
-  % x0 est l'it�r� initial (vecteur n x 1)
-  % maxiter est le nombre d'it�rations � effectuer
+  % x0 est l'itere initial (vecteur n x 1)
+  % maxiter est le nombre d'iterations a effectuer
   
   % Sortie :
   % x est vecteur n x 1
   
-  % ICI :Algorithme � impl�menter
   a = size (c);
   n = a(2);
-  x = [];
-  z = [];
-  %[f,delta] = fcalculator (Q, x0, c, p)
-  %z(1) = f ; 
- 
+  %% Initialiser deux variables pour garder les iterees:
+  x = []; % Pour les variables, n'importe quelle dimention
+          % x sera une matrice de dimentions (n_iterees x n_entrees(x))
+  z = []; % Pour la valeur de la fonction a chaque iteree
+
   for i=1:maxiter
     A = 0;
-    [f,delta] = fcalculator (Q, x0, c, p)
+    [f,delta] = fcalculator (Q, x0, c, p)  
     
-    
+    %% Choisir la variable a minimiser aleatoirement:
     j = ceil(rand(1)*n);       
+    
     if (delta(j) == 0)
-           
+       %% Si la derivee partielle selon la variable x_j
+       %% vaut zero, x_j reste la meme
     else          
-      x = [x; x0];
-      z = [z; f] ; 
+      x = [x; x0]; % ajouter l'iteree anterieure
+      z = [z; f] ; % ajouter la valeur de la fonction a la derniere iteree 
       
       for o = 1:n
         A += (Q(j,o)*x0(o) + Q(o,j)*x0(o))/2; 
       endfor
-      x0(j) = (A - (Q(j,j)*x0(j)) - c(j))/(-Q(j,j))
+      % Mettre a jour la variable x_j :
+      x0(j) = (A - (Q(j,j)*x0(j)) - c(j))/(-Q(j,j)) 
     endif
   endfor
+  
+  % Imprimer les valeurs finaux des variables et la fonction:
   fprintf('La valeur optimale de x est %f\n', x0);
   fprintf('La valeur optimale de la fonction est %f\n', f);
 endfunction
