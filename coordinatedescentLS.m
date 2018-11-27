@@ -1,3 +1,4 @@
+
 function [x, z] = coordinatedescentLS(A, b, x0, maxiter)
   % Entrees :
   % A est une matrice m x n
@@ -12,7 +13,10 @@ function [x, z] = coordinatedescentLS(A, b, x0, maxiter)
   
   % A partir de notre deduction:
   
-  %La fonction coordinatedescentLS n'est pas utilisée car sa version 
-  %(coordinatedescent) générale marche très bien à partir du moment ou
-  % Q est définie positive
+  % Le fichier coordinatedescentLS n'est pas utilise 
+  % car il suffit de calculer Q, c' et p 
+  % a partir de A et b et puis appeler la fonction coordinatedescent
+  % depuis Main.
+  % L'algorithme marche tres bien a partir du moment ou
+  % Q est definie positive
 end
