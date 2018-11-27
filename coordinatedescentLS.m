@@ -11,10 +11,8 @@ function [x, z] = coordinatedescentLS(A, b, x0, maxiter)
   % ICI :Algorithme a implementer
   
   % A partir de notre deduction:
-  Q = (A')*A;
-  c = (b')*A;
-  p = (b')*b;
   
-  [x, z] = coordinatedescent(Q, c, p, x0, maxiter);
-
+  %La fonction coordinatedescentLS n'est pas utilisée car sa version 
+  %(coordinatedescent) générale marche très bien à partir du moment ou
+  % Q est définie positive
 end
