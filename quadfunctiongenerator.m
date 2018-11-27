@@ -35,7 +35,7 @@ if (choix == 0)
     fprintf ('le problème est carctérisé par: \n');
     Q , c, p, x0 
     [], b = eig(Q);
-    %b = vecteur composé des valeures propres
+    %b = vecteur compose des valeures propres
     
   until (b > 0)
   %tant que la matrice Q n'est pas définie positive, l'utilisateur recommence
@@ -43,11 +43,12 @@ if (choix == 0)
    
   %L'utilisateur rentre A et b pour définir la fonction minimisant ||Ax-b||_2^2)
 else 
-  do
-    n = input ('Choix du nombre de variables: n = ');
-    %valable quel que soit le nombre de dimensions choisies
-    fprintf ('Entrer les valeures des éléments de A et de b qui caractérise le problême du moindre carré min||Ax-b||_2^2 \n');
   
+  n = input ('Choix du nombre de variables: n = ');
+  %valable quel que soit le nombre de dimensions choisies
+  fprintf ('Entrer les valeures des éléments de A et de b qui caractérise le problême du moindre carré min||Ax-b||_2^2 \n');
+ 
+  do
     for i = 1 : n
       for j = 1 : n
         fprintf('A(%d', i),fprintf(',%d', j), A(i,j) = input (')==>');
@@ -66,11 +67,11 @@ else
   
     fprintf ('le problème est carctérisé par: \n');
     Q = 0.5*A'*A, c = b*A, p = 0.5*b*b', x0
-    %calcule Q, c et p d'après nos constatations
+    %calcule Q, c et p d'apres nos constatations
     [], b = eig(Q);
     %b = vecteur composé des valeures propres
   until (b > 0)
-  %tant que la matrice Q n'est pas définie positive, l'utilisateur recommence !
+  %tant que la matrice Q n est pas definie positive, l'utilisateur recommence !
   
   
 endif
