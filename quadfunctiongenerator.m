@@ -79,7 +79,7 @@ else
   endfor
   
   fprintf ('le problème est carctérisé par: \n');
-  Q = 0.5*A'*A, c = b*A, p = 0.5*b'*b, x0 
+  Q = 0.5*A'*A, c = b*A, p = 0.5*b*b', x0 
   
   
   
